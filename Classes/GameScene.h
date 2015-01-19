@@ -9,6 +9,7 @@
 #include "BgMap.h"
 #include "Player.h"
 #include "GameInfoUIController.h"
+#include "Enemy.h"
 USING_NS_CC;
 USING_NS_CC_EXT;
 
@@ -58,7 +59,7 @@ public:
 
 	void replaceBgMap(int mapID, const int born);
 
-	//void removeEnemy(Enemy* enemy);
+	void removeEnemy(Enemy* enemy);
 
 	void addEnemy();
 
@@ -66,7 +67,7 @@ public:
 
 	void OutOfCombat();
 
-	//void showSelected(Monomer* var);
+	void showSelected(Monomer* var);
 
 	Monomer* getSelected();
 

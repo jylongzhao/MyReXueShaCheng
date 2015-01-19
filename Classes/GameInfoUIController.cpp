@@ -48,9 +48,9 @@ bool GameInfoUIController::init()
 
 	this->initWithHeadUI();
 
-	//m_mapThumbnailMenu = MapThumbnailMenu::create();
-	//m_mapThumbnailMenu->setPosition(ccpSub(m_winSize, CCPoint(100, 100)));
-	//this->addChild(m_mapThumbnailMenu);
+	m_mapThumbnailMenu = MapThumbnailMenu::create();
+	m_mapThumbnailMenu->setPosition(ccpSub(m_winSize, CCPoint(100, 100)));
+	this->addChild(m_mapThumbnailMenu);
 
 	m_operationMenu = LOperationMenu::create();
 	this->addChild(m_operationMenu);

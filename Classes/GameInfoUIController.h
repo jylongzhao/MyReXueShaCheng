@@ -16,7 +16,7 @@
 //#include "GameTabBarMenu.h"
 //#include "AttackEnemyInfo.h"
 //#include "ChatInterface.h"
-//#include "MapThumbnailLayer.h"
+#include "MapThumbnailLayer.h"
 USING_NS_CC;
 USING_NS_CC_EXT;
 
@@ -32,7 +32,7 @@ class GameInfoUIController: public CCLayer {
 
 	//CC_SYNTHESIZE_READONLY(ChatInterface*, m_chatInterface, ChatInterface);
 
-	//CC_SYNTHESIZE(MapThumbnailMenu*, m_mapThumbnailMenu, MapThumbnailMenu);
+	CC_SYNTHESIZE(MapThumbnailMenu*, m_mapThumbnailMenu, MapThumbnailMenu);
 
 	std::deque<CCNode*> m_pMenuSmall;
 

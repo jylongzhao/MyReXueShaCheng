@@ -105,22 +105,22 @@ bool GameScene::init()
 	return true;
 }
 
-//void GameScene::showSelected(Monomer* var)
-//{
-//	if (m_selected->getParent())
-//	{
-//		m_selected->removeFromParent();
-//	}
-//
-//	if (var)
-//	{
-//		float x = var->getAnchorPoint().x * var->getContentSize().width;
-//		float y = var->getAnchorPoint().y * var->getContentSize().height;
-//		m_selected->setPosition(CCPoint(x, y));
-//		var->addChild(m_selected, -1);
-//		m_gameInfoUIController->getAttackEnemyInfo()->showAttackInfo(var);
-//	}
-//}
+void GameScene::showSelected(Monomer* var)
+{
+	if (m_selected->getParent())
+	{
+		m_selected->removeFromParent();
+	}
+
+	if (var)
+	{
+		float x = var->getAnchorPoint().x * var->getContentSize().width;
+		float y = var->getAnchorPoint().y * var->getContentSize().height;
+		m_selected->setPosition(CCPoint(x, y));
+		var->addChild(m_selected, -1);
+		//m_gameInfoUIController->getAttackEnemyInfo()->showAttackInfo(var);
+	}
+}
 
 Monomer* GameScene::getSelected()
 {
@@ -504,23 +504,23 @@ void GameScene::ccTouchCancelled(CCTouch *pTouch, CCEvent *pEvent)
 
 }
 
-//void GameScene::removeEnemy(Enemy* enemy)
-//{
-//	std::multimap<unsigned int, MapPoint>::value_type type = std::multimap<unsigned int, MapPoint>::value_type(enemy->getRoleNumber(), enemy->getDenPos());
-//	m_waitReincarnationEnemy.insert(type);
-//	m_gMapPoint.erase(enemy);
-//	m_enemyDictionary->removeObjectForKey(enemy->getEnemyID());
-//	if (enemy->isEqual(this->getSelected()))
-//	{
-//		this->showSelected(NULL);
-//	}
-//	float time = CCRANDOM_0_1() * 5 + 3;
-//	CCCallFunc* callFunc = CCCallFunc::create(this, callfunc_selector(GameScene::addEnemy));
-//	CCSequence* actions = CCSequence::create(CCDelayTime::create(time), callFunc, NULL);
-//	this->runAction(actions);
-//
-//	m_gameInfoUIController->getOperationMenu()->intelligentSearch();
-//}
+void GameScene::removeEnemy(Enemy* enemy)
+{
+	std::multimap<unsigned int, MapPoint>::value_type type = std::multimap<unsigned int, MapPoint>::value_type(enemy->getRoleNumber(), enemy->getDenPos());
+	m_waitReincarnationEnemy.insert(type);
+	m_gMapPoint.erase(enemy);
+	m_enemyDictionary->removeObjectForKey(enemy->getEnemyID());
+	if (enemy->isEqual(this->getSelected()))
+	{
+		this->showSelected(NULL);
+	}
+	float time = CCRANDOM_0_1() * 5 + 3;
+	CCCallFunc* callFunc = CCCallFunc::create(this, callfunc_selector(GameScene::addEnemy));
+	CCSequence* actions = CCSequence::create(CCDelayTime::create(time), callFunc, NULL);
+	this->runAction(actions);
+
+	m_gameInfoUIController->getOperationMenu()->intelligentSearch();
+}
 
 void GameScene::addEnemy()
 {
